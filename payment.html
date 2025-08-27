@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway - EDUBRIDGE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600">
+                        <i data-feather="book" class="inline-block w-6 h-6 mr-2"></i>
+                        EDUBRIDGE
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="books.html" class="text-gray-600 hover:text-blue-600 transition-colors">Browse Books</a>
+                    <a href="post.html" class="text-gray-600 hover:text-blue-600 transition-colors">Post a Book</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
+                    <a href="delivery.html" class="text-gray-600 hover:text-blue-600 transition-colors">Delivery</a>
+                    <a href="payment.html" class="text-blue-600 font-semibold">Payment</a>
+                    <a href="login.html" class="text-gray-600 hover:text-blue-600 transition-colors">Login</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuBtn" class="text-gray-600 hover:text-blue-600">
+                        <i data-feather="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Home</a>
+                <a href="books.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Browse Books</a>
+                <a href="post.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Post a Book</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Contact</a>
+                <a href="delivery.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Delivery</a>
+                <a href="payment.html" class="block px-3 py-2 text-blue-600 font-semibold">Payment</a>
+                <a href="login.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="bg-white py-8 border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">Payment Gateway</h1>
+            <p class="text-gray-600">Complete your purchase securely</p>
+        </div>
+    </section>
+
+    <!-- Payment Options Section -->
+    <section class="py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Order Summary -->
+            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Order Summary</h2>
+                <div id="orderDetails" class="border-t pt-4">
+                    <div class="flex justify-between py-2">
+                        <span class="text-gray-600">Selected Book:</span>
+                        <span id="bookTitle" class="font-semibold">Physics Textbook</span>
+                    </div>
+                    <div class="flex justify-between py-2">
+                        <span class="text-gray-600">Price:</span>
+                        <span id="bookPrice" class="font-semibold">₹1,299</span>
+                    </div>
+                    <div class="flex justify-between py-2">
+                        <span class="text-gray-600">Delivery Fee:</span>
+                        <span id="deliveryFee" class="font-semibold">₹49</span>
+                    </div>
+                    <div class="flex justify-between py-2 border-t pt-2">
+                        <span class="text-lg font-semibold text-gray-800">Total:</span>
+                        <span id="totalAmount" class="text-xl font-bold text-blue-600">₹1,348</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-semibold text-gray-800 mb-6">Choose Payment Method</h2>
+                
+                <!-- Payment Options -->
+                <div class="space-y-4 mb-6">
+                    <!-- UPI Payment -->
+                    <div class="payment-option border rounded-lg p-4 cursor-pointer hover:bg-gray-50" data-method="upi">
+                        <div class="flex items-center">
+                            <input type="radio" name="payment" id="upi" class="mr-3" value="upi">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <i data-feather="smartphone" class="w-5 h-5 text-purple-600 mr-2"></i>
+                                    <label for="upi" class="font-semibold text-gray-800">UPI Payment</label>
+                                </div>
+                                <p class="text-sm text-gray-600 mt-1">Pay using Google Pay, PhonePe, Paytm, or any UPI app</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Credit/Debit Card -->
+                    <div class="payment-option border rounded-lg p-4 cursor-pointer hover:bg-gray-50" data-method="card">
+                        <div class="flex items-center">
+                            <input type="radio" name="payment" id="card" class="mr-3" value="card">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <i data-feather="credit-card" class="w-5 h-5 text-blue-600 mr-2"></i>
+                                    <label for="card" class="font-semibold text-gray-800">Credit/Debit Card</label>
+                                </div>
+                                <p class="text-sm text-gray-600 mt-1">Visa, MasterCard, RuPay, American Express</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Net Banking -->
+                    <div class="payment-option border rounded-lg p-4 cursor-pointer hover:bg-gray-50" data-method="netbanking">
+                        <div class="flex items-center">
+                            <input type="radio" name="payment" id="netbanking" class="mr-3" value="netbanking">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <i data-feather="globe" class="w-5 h-5 text-green-600 mr-2"></i>
+                                    <label for="netbanking" class="font-semibold text-gray-800">Net Banking</label>
+                                </div>
+                                <p class="text-sm text-gray-600 mt-1">SBI, HDFC, ICICI, Axis Bank & more</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wallet Payment -->
+                    <div class="payment-option border rounded-lg p-4 cursor-pointer hover:bg-gray-50" data-method="wallet">
+                        <div class="flex items-center">
+                            <input type="radio" name="payment" id="wallet" class="mr-3" value="wallet">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <i data-feather="wallet" class="w-5 h-5 text-orange-600 mr-2"></i>
+                                    <label for="wallet" class="font-semibold text-gray-800">Digital Wallet</label>
+                                </div>
+                                <p class="text-sm text-gray-600 mt-1">Paytm, Amazon Pay, Mobikwik</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cash on Delivery -->
+                    <div class="payment-option border rounded-lg p-4 cursor-pointer hover:bg-gray-50" data-method="cod">
+                        <div class="flex items-center">
+                            <input type="radio" name="payment" id="cod" class="mr-3" value="cod">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <i data-feather="truck" class="w-5 h-5 text-red-600 mr-2"></i>
+                                    <label for="cod" class="font-semibold text-gray-800">Cash on Delivery</label>
+                                </div>
+                                <p class="text-sm text-gray-600 mt-1">Pay when you receive the book</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Form -->
+                <div id="paymentForm" class="hidden">
+                    <!-- UPI Form -->
+                    <div id="upiForm" class="payment-form hidden">
+                        <h3 class="text-lg font-semibold mb-4">UPI Payment</h3>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">UPI ID</label>
+                            <input type="text" id="upiId" placeholder="yourname@upi" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="text-center">
+                            <div class="qr-code bg-gray-100 p-4 rounded-lg mb-4">
+                                <p class="text-sm text-gray-600">Scan QR code with your UPI app</p>
+                                <div class="w-32 h-32 bg-white border-2 border-gray-300 mx-auto mt-2 flex items-center justify-center">
+                                    <i data-feather="maximize" class="w-16 h-16 text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Form -->
+                    <div id="cardForm" class="payment-form hidden">
+                        <h3 class="text-lg font-semibold mb-4">Card Details</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Card Number</label>
+                                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Expiry Date</label>
+                                <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">CVV</label>
+                                <input type="text" id="cvv" placeholder="123" maxlength="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Cardholder Name</label>
+                                <input type="text" id="cardholderName" placeholder="John Doe" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Net Banking Form -->
+                    <div id="netbankingForm" class="payment-form hidden">
+                        <h3 class="text-lg font-semibold mb-4">Select Your Bank</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <button class="bank-option border rounded-lg p-3 hover:bg-gray-50 text-left" data-bank="sbi">
+                                <div class="font-semibold text-blue-600">SBI</div>
+                                <div class="text-sm text-gray-600">State Bank of India</div>
+                            </button>
+                            <button class="bank-option border rounded-lg p-3 hover:bg-gray-50 text-left" data-bank="hdfc">
+                                <div class="font-semibold text-red-600">HDFC</div>
+                                <div class="text-sm text-gray-600">HDFC Bank</div>
+                            </button>
+                            <button class="bank-option border rounded-lg p-3 hover:bg-gray-50 text-left" data-bank="icici">
+                                <div class="font-semibold text-orange-600">ICICI</div>
+                                <div class="text-sm text-gray-600">ICICI Bank</div>
+                            </button>
+                            <button class="bank-option border rounded-lg p-3 hover:bg-gray-50 text-left" data-bank="axis">
+                                <div class="font-semibold text-purple-600">Axis</div>
+                                <div class="text-sm text-gray-600">Axis Bank</div>
+                            </button>
+                            <button class="bank-option border rounded-lg p-3 hover:bg-gray-50 text-left" data-bank="kotak">
+                                <div class="font-semibold text-red-500">Kotak</div>
+                                <div class="text-sm text-gray-600">Kotak Mahindra</div>
+                            </button>
+                            <button class="bank-option border rounded-lg p-3 hover:bg-gray-50 text-left" data-bank="pnb">
+                                <div class="font-semibold text-blue-500">PNB</div>
+                                <div class="text-sm text-gray-600">Punjab National Bank</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Wallet Form -->
+                    <div id="walletForm" class="payment-form hidden">
+                        <h3 class="text-lg font-semibold mb-4">Select Wallet</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <button class="wallet-option border rounded-lg p-4 hover:bg-gray-50 text-center" data-wallet="paytm">
+                                <div class="font-semibold text-blue-600">Paytm</div>
+                                <div class="text-sm text-gray-600 mt-1">Balance: ₹2,500</div>
+                            </button>
+                            <button class="wallet-option border rounded-lg p-4 hover:bg-gray-50 text-center" data-wallet="amazonpay">
+                                <div class="font-semibold text-orange-600">Amazon Pay</div>
+                                <div class="text-sm text-gray-600 mt-1">Balance: ₹1,800</div>
+                            </button>
+                            <button class="wallet-option border rounded-lg p-4 hover:bg-gray-50 text-center" data-wallet="mobikwik">
+                                <div class="font-semibold text-purple-600">Mobikwik</div>
+                                <div class="text-sm text-gray-600 mt-1">Balance: ₹950</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- COD Form -->
+                    <div id="codForm" class="payment-form hidden">
+                        <h3 class="text-lg font-semibold mb-4">Cash on Delivery</h3>
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                            <div class="flex items-center">
+                                <i data-feather="info" class="w-5 h-5 text-yellow-600 mr-2"></i>
+                                <div>
+                                    <p class="text-sm text-yellow-800">
+                                        <strong>Note:</strong> You will pay ₹1,348 in cash when the book is delivered to you.
+                                    </p>
+                                    <p class="text-sm text-yellow-600 mt-1">
+                                        Please keep exact change ready for smooth delivery.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Button -->
+                <div class="mt-8 text-center">
+                    <button id="paymentBtn" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        Select Payment Method
+                    </button>
+                </div>
+            </div>
+
+            <!-- Security Features -->
+            <div class="mt-8 bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Secure Payment</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="flex items-center">
+                        <i data-feather="shield" class="w-6 h-6 text-green-600 mr-3"></i>
+                        <div>
+                            <div class="font-semibold text-gray-800">256-bit SSL</div>
+                            <div class="text-sm text-gray-600">Encryption</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i data-feather="lock" class="w-6 h-6 text-green-600 mr-3"></i>
+                        <div>
+                            <div class="font-semibold text-gray-800">PCI DSS</div>
+                            <div class="text-sm text-gray-600">Compliant</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i data-feather="check-circle" class="w-6 h-6 text-green-600 mr-3"></i>
+                        <div>
+                            <div class="font-semibold text-gray-800">Verified by</div>
+                            <div class="text-sm text-gray-600">Visa & MasterCard</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Payment method selection
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const method = this.dataset.method;
+                const radio = this.querySelector('input[type="radio"]');
+                radio.checked = true;
+                
+                // Show/hide payment forms
+                document.querySelectorAll('.payment-form').forEach(form => {
+                    form.classList.add('hidden');
+                });
+                
+                const paymentForm = document.getElementById('paymentForm');
+                paymentForm.classList.remove('hidden');
+                
+                document.getElementById(method + 'Form').classList.remove('hidden');
+                
+                // Update payment button
+                const paymentBtn = document.getElementById('paymentBtn');
+                paymentBtn.disabled = false;
+                
+                switch(method) {
+                    case 'upi':
+                        paymentBtn.textContent = 'Pay with UPI';
+                        break;
+                    case 'card':
+                        paymentBtn.textContent = 'Pay with Card';
+                        break;
+                    case 'netbanking':
+                        paymentBtn.textContent = 'Pay with Net Banking';
+                        break;
+                    case 'wallet':
+                        paymentBtn.textContent = 'Pay with Wallet';
+                        break;
+                    case 'cod':
+                        paymentBtn.textContent = 'Place COD Order';
+                        break;
+                }
+            });
+        });
+
+        // Card number formatting
+        document.getElementById('cardNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+            e.target.value = formattedValue;
+        });
+
+        // Expiry date formatting
+        document.getElementById('expiryDate').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            e.target.value = value;
+        });
+
+        // Bank selection
+        document.querySelectorAll('.bank-option').forEach(bank => {
+            bank.addEventListener('click', function() {
+                document.querySelectorAll('.bank-option').forEach(b => b.classList.remove('ring-2', 'ring-blue-500'));
+                this.classList.add('ring-2', 'ring-blue-500');
+            });
+        });
+
+        // Wallet selection
+        document.querySelectorAll('.wallet-option').forEach(wallet => {
+            wallet.addEventListener('click', function() {
+                document.querySelectorAll('.wallet-option').forEach(w => w.classList.remove('ring-2', 'ring-blue-500'));
+                this.classList.add('ring-2', 'ring-blue-500');
+            });
+        });
+
+        // Payment processing
+        document.getElementById('paymentBtn').addEventListener('click', function() {
+            const selectedMethod = document.querySelector('input[name="payment"]:checked');
+            if (!selectedMethod) {
+                showToast('Please select a payment method', 'error');
+                return;
+            }
+
+            // Show loading state
+            this.disabled = true;
+            this.innerHTML = '<i data-feather="loader" class="w-5 h-5 animate-spin inline mr-2"></i>Processing...';
+            feather.replace();
+
+            // Simulate payment processing
+            setTimeout(() => {
+                showToast('Payment processed successfully!', 'success');
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 2000);
+            }, 3000);
+        });
+
+        // Load order details from localStorage
+        function loadOrderDetails() {
+            const orderData = JSON.parse(localStorage.getItem('currentOrder') || '{}');
+            if (orderData.bookTitle) {
+                document.getElementById('bookTitle').textContent = orderData.bookTitle;
+                document.getElementById('bookPrice').textContent = '₹' + orderData.bookPrice;
+                document.getElementById('deliveryFee').textContent = '₹' + (orderData.deliveryFee || 49);
+                document.getElementById('totalAmount').textContent = '₹' + (orderData.bookPrice + (orderData.deliveryFee || 49));
+            }
+        }
+
+        // Initialize order details
+        loadOrderDetails();
+    </script>
+</body>
+</html>

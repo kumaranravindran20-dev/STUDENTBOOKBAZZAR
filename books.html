@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Books - EDUBRIDGE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600">
+                        <i data-feather="book" class="inline-block w-6 h-6 mr-2"></i>
+                        EDUBRIDGE
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="books.html" class="text-blue-600 font-semibold">Browse Books</a>
+                    <a href="post.html" class="text-gray-600 hover:text-blue-600 transition-colors">Post a Book</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
+                    <a href="delivery.html" class="text-gray-600 hover:text-blue-600 transition-colors">Delivery</a>
+                    <a href="payment.html" class="text-gray-600 hover:text-blue-600 transition-colors">Payment</a>
+                    <a href="login.html" class="text-gray-600 hover:text-blue-600 transition-colors">Login</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuBtn" class="text-gray-600 hover:text-blue-600">
+                        <i data-feather="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Home</a>
+                <a href="books.html" class="block px-3 py-2 text-blue-600 font-semibold">Browse Books</a>
+                <a href="post.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Post a Book</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Contact</a>
+                <a href="delivery.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Delivery</a>
+                <a href="payment.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Payment</a>
+                <a href="login.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="bg-white py-8 border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">Browse Books</h1>
+            <p class="text-gray-600">Find the perfect textbook for your studies</p>
+        </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="bg-white py-6 border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="flex-1">
+                    <div class="relative">
+                        <i data-feather="search" class="absolute left-3 top-3 w-5 h-5 text-gray-400"></i>
+                        <input type="text" id="searchInput" placeholder="Search books by title, course, or author..." 
+                               class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <select id="categoryFilter" class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option value="">All Categories</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Science">Science</option>
+                        <option value="Arts">Arts</option>
+                        <option value="Business">Business</option>
+                        <option value="Medical">Medical</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <select id="semesterFilter" class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option value="">All Semesters</option>
+                        <option value="1">Semester 1</option>
+                        <option value="2">Semester 2</option>
+                        <option value="3">Semester 3</option>
+                        <option value="4">Semester 4</option>
+                        <option value="5">Semester 5</option>
+                        <option value="6">Semester 6</option>
+                        <option value="7">Semester 7</option>
+                        <option value="8">Semester 8</option>
+                    </select>
+                    <button id="clearFilters" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+                        Clear Filters
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Books Grid -->
+    <section class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="booksGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Books will be populated here -->
+            </div>
+            
+            <!-- No Books Message -->
+            <div id="noBooksMessage" class="text-center py-16 hidden">
+                <i data-feather="book-open" class="w-16 h-16 text-gray-400 mx-auto mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-600 mb-2">No books found</h3>
+                <p class="text-gray-500 mb-6">Try adjusting your search or filters, or be the first to post a book!</p>
+                <a href="post.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                    Post a Book
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="index.html" class="text-2xl font-bold">
+                        <i data-feather="book" class="inline-block w-6 h-6 mr-2"></i>
+                        BookSwap
+                    </a>
+                    <p class="text-gray-400 mt-2">Connecting students through textbooks</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="books.html" class="text-gray-400 hover:text-white transition-colors">Browse</a>
+                    <a href="post.html" class="text-gray-400 hover:text-white transition-colors">Post</a>
+                    <a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 BookSwap. Made for students, by students.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+        
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        let allBooks = [];
+        let filteredBooks = [];
+
+        // Load books on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            allBooks = getBooks();
+            filteredBooks = [...allBooks];
+            
+            // Check if a category was selected from home page
+            const selectedCategory = localStorage.getItem('selectedCategory');
+            if (selectedCategory) {
+                document.getElementById('categoryFilter').value = selectedCategory;
+                localStorage.removeItem('selectedCategory');
+            }
+            
+            renderBooks();
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            document.getElementById('searchInput').addEventListener('input', filterBooks);
+            document.getElementById('categoryFilter').addEventListener('change', filterBooks);
+            document.getElementById('semesterFilter').addEventListener('change', filterBooks);
+            document.getElementById('clearFilters').addEventListener('click', clearFilters);
+        }
+
+        function filterBooks() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            const semesterFilter = document.getElementById('semesterFilter').value;
+
+            filteredBooks = allBooks.filter(book => {
+                const matchesSearch = book.title.toLowerCase().includes(searchTerm) ||
+                                    book.course.toLowerCase().includes(searchTerm) ||
+                                    book.department.toLowerCase().includes(searchTerm);
+                
+                const matchesCategory = !categoryFilter || book.department === categoryFilter;
+                const matchesSemester = !semesterFilter || book.semester === semesterFilter;
+
+                return matchesSearch && matchesCategory && matchesSemester;
+            });
+
+            renderBooks();
+        }
+
+        function clearFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('categoryFilter').value = '';
+            document.getElementById('semesterFilter').value = '';
+            filteredBooks = [...allBooks];
+            renderBooks();
+        }
+
+        function renderBooks() {
+            const booksGrid = document.getElementById('booksGrid');
+            const noBooksMessage = document.getElementById('noBooksMessage');
+
+            if (filteredBooks.length === 0) {
+                booksGrid.innerHTML = '';
+                noBooksMessage.classList.remove('hidden');
+                feather.replace();
+                return;
+            }
+
+            noBooksMessage.classList.add('hidden');
+
+            booksGrid.innerHTML = filteredBooks.map(book => `
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center">
+                        ${book.image ? 
+                            `<img src="${book.image}" alt="${book.title}" class="w-full h-full object-cover">` :
+                            `<div class="text-center">
+                                <i data-feather="book-open" class="w-16 h-16 text-gray-400 mx-auto mb-2"></i>
+                                <p class="text-gray-500 text-sm">No image available</p>
+                            </div>`
+                        }
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">${book.title}</h3>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <div class="flex items-center">
+                                <i data-feather="layers" class="w-4 h-4 mr-2"></i>
+                                ${book.department}
+                            </div>
+                            <div class="flex items-center">
+                                <i data-feather="calendar" class="w-4 h-4 mr-2"></i>
+                                Semester ${book.semester}
+                            </div>
+                            <div class="flex items-center">
+                                <i data-feather="book" class="w-4 h-4 mr-2"></i>
+                                ${book.course}
+                            </div>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center">
+                            <div class="text-2xl font-bold text-green-600">₹${book.price}</div>
+                            <button onclick="showContactInfo('${book.id}')" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                Contact Seller
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            feather.replace();
+        }
+
+        function showContactInfo(bookId) {
+            const book = allBooks.find(b => b.id === bookId);
+            if (!book) return;
+
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
+            modal.innerHTML = `
+                <div class="bg-white rounded-lg p-6 max-w-md w-full">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-semibold">Contact Seller</h3>
+                        <button onclick="this.closest('.fixed').remove()" class="text-gray-500 hover:text-gray-700">
+                            <i data-feather="x" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-medium text-gray-800 mb-2">${book.title}</h4>
+                        <p class="text-gray-600">₹${book.price}</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i data-feather="mail" class="w-5 h-5 text-gray-400 mr-3"></i>
+                            <a href="mailto:${book.email}" class="text-blue-600 hover:underline">${book.email}</a>
+                        </div>
+                        ${book.phone ? `
+                            <div class="flex items-center">
+                                <i data-feather="phone" class="w-5 h-5 text-gray-400 mr-3"></i>
+                                <a href="tel:${book.phone}" class="text-blue-600 hover:underline">${book.phone}</a>
+                            </div>
+                        ` : ''}
+                    </div>
+                    <div class="mt-6 text-center">
+                        <button onclick="this.closest('.fixed').remove()" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            feather.replace();
+        }
+    </script>
+</body>
+</html>

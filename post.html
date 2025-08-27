@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Book - EDUBRIDGE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600">
+                        <i data-feather="book" class="inline-block w-6 h-6 mr-2"></i>
+                        EDUBRIDGE
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="books.html" class="text-gray-600 hover:text-blue-600 transition-colors">Browse Books</a>
+                    <a href="post.html" class="text-blue-600 font-semibold">Post a Book</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
+                    <a href="delivery.html" class="text-gray-600 hover:text-blue-600 transition-colors">Delivery</a>
+                    <a href="payment.html" class="text-gray-600 hover:text-blue-600 transition-colors">Payment</a>
+                    <a href="login.html" class="text-gray-600 hover:text-blue-600 transition-colors">Login</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuBtn" class="text-gray-600 hover:text-blue-600">
+                        <i data-feather="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Home</a>
+                <a href="books.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Browse Books</a>
+                <a href="post.html" class="block px-3 py-2 text-blue-600 font-semibold">Post a Book</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Contact</a>
+                <a href="delivery.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Delivery</a>
+                <a href="payment.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Payment</a>
+                <a href="login.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="bg-white py-8 border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">Post a Book</h1>
+            <p class="text-gray-600">Share your textbook with fellow students</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="py-8">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <form id="bookForm">
+                    <div class="space-y-6">
+                        <!-- Book Title -->
+                        <div>
+                            <label for="title" class="block text-sm font-medium text-gray-700 mb-2">
+                                Book Title <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" id="title" name="title" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                   placeholder="Enter the book title">
+                            <div class="error-message text-red-500 text-sm mt-1 hidden" id="titleError"></div>
+                        </div>
+
+                        <!-- Course -->
+                        <div>
+                            <label for="course" class="block text-sm font-medium text-gray-700 mb-2">
+                                Course <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" id="course" name="course" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                   placeholder="e.g., Data Structures, Physics, Literature">
+                            <div class="error-message text-red-500 text-sm mt-1 hidden" id="courseError"></div>
+                        </div>
+
+                        <!-- Department -->
+                        <div>
+                            <label for="department" class="block text-sm font-medium text-gray-700 mb-2">
+                                Department <span class="text-red-500">*</span>
+                            </label>
+                            <select id="department" name="department" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">Select Department</option>
+                                <option value="Engineering">Engineering</option>
+                                <option value="Science">Science</option>
+                                <option value="Arts">Arts</option>
+                                <option value="Business">Business</option>
+                                <option value="Medical">Medical</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div class="error-message text-red-500 text-sm mt-1 hidden" id="departmentError"></div>
+                        </div>
+
+                        <!-- Semester -->
+                        <div>
+                            <label for="semester" class="block text-sm font-medium text-gray-700 mb-2">
+                                Semester <span class="text-red-500">*</span>
+                            </label>
+                            <select id="semester" name="semester" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">Select Semester</option>
+                                <option value="1">Semester 1</option>
+                                <option value="2">Semester 2</option>
+                                <option value="3">Semester 3</option>
+                                <option value="4">Semester 4</option>
+                                <option value="5">Semester 5</option>
+                                <option value="6">Semester 6</option>
+                                <option value="7">Semester 7</option>
+                                <option value="8">Semester 8</option>
+                            </select>
+                            <div class="error-message text-red-500 text-sm mt-1 hidden" id="semesterError"></div>
+                        </div>
+
+                        <!-- Price -->
+                        <div>
+                            <label for="price" class="block text-sm font-medium text-gray-700 mb-2">
+                                Price (₹) <span class="text-red-500">*</span>
+                            </label>
+                            <input type="number" id="price" name="price" required min="0" step="1"
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                   placeholder="Enter price in rupees">
+                            <div class="error-message text-red-500 text-sm mt-1 hidden" id="priceError"></div>
+                        </div>
+
+                        <!-- Contact Email -->
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                                Contact Email <span class="text-red-500">*</span>
+                            </label>
+                            <input type="email" id="email" name="email" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                   placeholder="your.email@example.com">
+                            <div class="error-message text-red-500 text-sm mt-1 hidden" id="emailError"></div>
+                        </div>
+
+                        <!-- Contact Phone (Optional) -->
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
+                                Contact Phone (Optional)
+                            </label>
+                            <input type="tel" id="phone" name="phone"
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                   placeholder="+91 9876543210">
+                            <div class="error-message text-red-500 text-sm mt-1 hidden" id="phoneError"></div>
+                        </div>
+
+                        <!-- Book Image (Optional) -->
+                        <div>
+                            <label for="image" class="block text-sm font-medium text-gray-700 mb-2">
+                                Book Image (Optional)
+                            </label>
+                            <div class="flex items-center justify-center w-full">
+                                <label for="image" class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                        <i data-feather="upload" class="w-8 h-8 text-gray-400 mb-2"></i>
+                                        <p class="text-sm text-gray-500">Click to upload book image</p>
+                                        <p class="text-xs text-gray-400">PNG, JPG up to 5MB</p>
+                                    </div>
+                                    <input id="image" type="file" class="hidden" accept="image/*">
+                                </label>
+                            </div>
+                            <div id="imagePreview" class="mt-4 hidden">
+                                <img id="previewImg" class="w-32 h-32 object-cover rounded-lg">
+                            </div>
+                            <div class="error-message text-red-500 text-sm mt-1 hidden" id="imageError"></div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="flex gap-4">
+                            <button type="submit" id="submitBtn" 
+                                    class="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+                                <span id="submitText">Post Book</span>
+                                <div id="submitLoader" class="hidden">
+                                    <i data-feather="loader" class="w-5 h-5 animate-spin inline-block"></i>
+                                    Posting...
+                                </div>
+                            </button>
+                            <button type="button" onclick="resetForm()" 
+                                    class="bg-gray-500 text-white py-3 px-6 rounded-lg hover:bg-gray-600 transition-colors">
+                                Reset
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 hidden">
+        <div class="bg-white rounded-lg p-6 max-w-md w-full text-center">
+            <div class="text-green-600 mb-4">
+                <i data-feather="check-circle" class="w-16 h-16 mx-auto"></i>
+            </div>
+            <h3 class="text-lg font-semibold mb-2">Book Posted Successfully!</h3>
+            <p class="text-gray-600 mb-6">Your book has been listed and is now available for other students to browse.</p>
+            <div class="flex gap-4">
+                <button onclick="closeSuccessModal()" class="flex-1 bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">
+                    Post Another
+                </button>
+                <a href="books.html" class="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                    View Books
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="index.html" class="text-2xl font-bold">
+                        <i data-feather="book" class="inline-block w-6 h-6 mr-2"></i>
+                        BookSwap
+                    </a>
+                    <p class="text-gray-400 mt-2">Connecting students through textbooks</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="books.html" class="text-gray-400 hover:text-white transition-colors">Browse</a>
+                    <a href="post.html" class="text-gray-400 hover:text-white transition-colors">Post</a>
+                    <a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 BookSwap. Made for students, by students.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+        
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Image upload preview
+        document.getElementById('image').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                if (file.size > 5 * 1024 * 1024) { // 5MB limit
+                    showError('imageError', 'Image size must be less than 5MB');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('previewImg').src = e.target.result;
+                    document.getElementById('imagePreview').classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+                hideError('imageError');
+            }
+        });
+
+        // Form submission
+        document.getElementById('bookForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validateForm()) {
+                submitForm();
+            }
+        });
+
+        function validateForm() {
+            let isValid = true;
+            const requiredFields = ['title', 'course', 'department', 'semester', 'price', 'email'];
+            
+            // Clear previous errors
+            document.querySelectorAll('.error-message').forEach(el => el.classList.add('hidden'));
+            
+            requiredFields.forEach(field => {
+                const input = document.getElementById(field);
+                if (!input.value.trim()) {
+                    showError(field + 'Error', 'This field is required');
+                    isValid = false;
+                }
+            });
+            
+            // Validate email
+            const email = document.getElementById('email').value;
+            if (email && !isValidEmail(email)) {
+                showError('emailError', 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            // Validate price
+            const price = document.getElementById('price').value;
+            if (price && (isNaN(price) || parseFloat(price) < 0)) {
+                showError('priceError', 'Please enter a valid price');
+                isValid = false;
+            }
+            
+            // Validate phone if provided
+            const phone = document.getElementById('phone').value;
+            if (phone && !isValidPhone(phone)) {
+                showError('phoneError', 'Please enter a valid phone number');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+
+        function submitForm() {
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const submitLoader = document.getElementById('submitLoader');
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitText.classList.add('hidden');
+            submitLoader.classList.remove('hidden');
+            
+            // Collect form data
+            const formData = new FormData(document.getElementById('bookForm'));
+            const bookData = {
+                id: generateId(),
+                title: formData.get('title'),
+                course: formData.get('course'),
+                department: formData.get('department'),
+                semester: formData.get('semester'),
+                price: formData.get('price'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                image: null, // Will be set if image is uploaded
+                datePosted: new Date().toISOString()
+            };
+            
+            // Handle image upload
+            const imageFile = document.getElementById('image').files[0];
+            if (imageFile) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    bookData.image = e.target.result;
+                    saveBook(bookData);
+                };
+                reader.readAsDataURL(imageFile);
+            } else {
+                saveBook(bookData);
+            }
+        }
+
+        function saveBook(bookData) {
+            try {
+                // Save to localStorage
+                const books = getBooks();
+                books.push(bookData);
+                localStorage.setItem('books', JSON.stringify(books));
+                
+                // Show success modal
+                setTimeout(() => {
+                    const submitBtn = document.getElementById('submitBtn');
+                    const submitText = document.getElementById('submitText');
+                    const submitLoader = document.getElementById('submitLoader');
+                    
+                    submitBtn.disabled = false;
+                    submitText.classList.remove('hidden');
+                    submitLoader.classList.add('hidden');
+                    
+                    document.getElementById('successModal').classList.remove('hidden');
+                }, 1000);
+                
+            } catch (error) {
+                console.error('Error saving book:', error);
+                alert('Error posting book. Please try again.');
+                
+                const submitBtn = document.getElementById('submitBtn');
+                const submitText = document.getElementById('submitText');
+                const submitLoader = document.getElementById('submitLoader');
+                
+                submitBtn.disabled = false;
+                submitText.classList.remove('hidden');
+                submitLoader.classList.add('hidden');
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('bookForm').reset();
+            document.getElementById('imagePreview').classList.add('hidden');
+            document.querySelectorAll('.error-message').forEach(el => el.classList.add('hidden'));
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            resetForm();
+        }
+
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+            errorElement.classList.remove('hidden');
+        }
+
+        function hideError(elementId) {
+            document.getElementById(elementId).classList.add('hidden');
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function isValidPhone(phone) {
+            const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,15}$/;
+            return phoneRegex.test(phone);
+        }
+
+        function generateId() {
+            return 'book_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+    </script>
+</body>
+</html>

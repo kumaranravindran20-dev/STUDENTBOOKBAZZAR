@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>EDUBRIDGE - College Textbook Marketplace</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://unpkg.com/feather-icons"></script>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body class="bg-gray-50">
+        <!-- Navigation -->
+        <nav class="bg-white shadow-lg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex items-center">
+                        <a
+                            href="index.html"
+                            class="text-2xl font-bold text-blue-600"
+                        >
+                            <i
+                                data-feather="book"
+                                class="inline-block w-6 h-6 mr-2"
+                            ></i>
+                            EDUBRIDGE
+                        </a>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a
+                            href="index.html"
+                            class="text-gray-600 hover:text-blue-600 transition-colors"
+                            >Home</a
+                        >
+                        <a
+                            href="books.html"
+                            class="text-gray-600 hover:text-blue-600 transition-colors"
+                            >Browse Books</a
+                        >
+                        <a
+                            href="post.html"
+                            class="text-gray-600 hover:text-blue-600 transition-colors"
+                            >Post a Book</a
+                        >
+                        <a
+                            href="contact.html"
+                            class="text-gray-600 hover:text-blue-600 transition-colors"
+                            >Contact</a
+                        >
+                        <a
+                            href="delivery.html"
+                            class="text-gray-600 hover:text-blue-600 transition-colors"
+                            >Delivery</a
+                        >
+                        <a
+                            href="payment.html"
+                            class="text-gray-600 hover:text-blue-600 transition-colors"
+                            >Payment</a
+                        >
+                        <a
+                            href="login.html"
+                            class="text-gray-600 hover:text-blue-600 transition-colors"
+                            >Login</a
+                        >
+                    </div>
+                    <div class="md:hidden flex items-center">
+                        <button
+                            id="mobileMenuBtn"
+                            class="text-gray-600 hover:text-blue-600"
+                        >
+                            <i data-feather="menu" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a
+                        href="index.html"
+                        class="block px-3 py-2 text-gray-600 hover:text-blue-600"
+                        >Home</a
+                    >
+                    <a
+                        href="books.html"
+                        class="block px-3 py-2 text-gray-600 hover:text-blue-600"
+                        >Browse Books</a
+                    >
+                    <a
+                        href="post.html"
+                        class="block px-3 py-2 text-gray-600 hover:text-blue-600"
+                        >Post a Book</a
+                    >
+                    <a
+                        href="contact.html"
+                        class="block px-3 py-2 text-gray-600 hover:text-blue-600"
+                        >Contact</a
+                    >
+                    <a
+                        href="delivery.html"
+                        class="block px-3 py-2 text-gray-600 hover:text-blue-600"
+                        >Delivery</a
+                    >
+                    <a
+                        href="payment.html"
+                        class="block px-3 py-2 text-gray-600 hover:text-blue-600"
+                        >Payment</a
+                    >
+                    <a
+                        href="login.html"
+                        class="block px-3 py-2 text-gray-600 hover:text-blue-600"
+                        >Login</a
+                    >
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section
+            class="bg-gradient-to-br from-blue-600 to-purple-700 text-white py-20"
+        >
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    Buy & Sell College Books
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90">
+                    The easiest way for students to trade textbooks with fellow
+                    students
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a
+                        href="books.html"
+                        class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                    >
+                        Browse Books
+                    </a>
+                    <a
+                        href="post.html"
+                        class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+                    >
+                        Post a Book
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">
+                    Browse by Category
+                </h2>
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    <div
+                        class="category-card bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl hover:shadow-lg transition-shadow cursor-pointer"
+                        data-category="Engineering"
+                    >
+                        <div class="text-blue-600 mb-4">
+                            <i data-feather="cpu" class="w-12 h-12"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">
+                            Engineering
+                        </h3>
+                        <p class="text-gray-600">
+                            Computer Science, Mechanical, Electrical, Civil
+                            Engineering books
+                        </p>
+                    </div>
+                    <div
+                        class="category-card bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl hover:shadow-lg transition-shadow cursor-pointer"
+                        data-category="Science"
+                    >
+                        <div class="text-green-600 mb-4">
+                            <i data-feather="activity" class="w-12 h-12"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">
+                            Science
+                        </h3>
+                        <p class="text-gray-600">
+                            Physics, Chemistry, Biology, Mathematics textbooks
+                        </p>
+                    </div>
+                    <div
+                        class="category-card bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-xl hover:shadow-lg transition-shadow cursor-pointer"
+                        data-category="Arts"
+                    >
+                        <div class="text-purple-600 mb-4">
+                            <i data-feather="edit-3" class="w-12 h-12"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">
+                            Arts
+                        </h3>
+                        <p class="text-gray-600">
+                            Literature, History, Philosophy, Art books
+                        </p>
+                    </div>
+                    <div
+                        class="category-card bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-xl hover:shadow-lg transition-shadow cursor-pointer"
+                        data-category="Business"
+                    >
+                        <div class="text-orange-600 mb-4">
+                            <i data-feather="briefcase" class="w-12 h-12"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">
+                            Business
+                        </h3>
+                        <p class="text-gray-600">
+                            Business, Economics, Management, Finance books
+                        </p>
+                    </div>
+                    <div
+                        class="category-card bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-xl hover:shadow-lg transition-shadow cursor-pointer"
+                        data-category="Medical"
+                    >
+                        <div class="text-red-600 mb-4">
+                            <i data-feather="heart" class="w-12 h-12"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">
+                            Medical
+                        </h3>
+                        <p class="text-gray-600">
+                            Medicine, Nursing, Health Sciences textbooks
+                        </p>
+                    </div>
+                    <div
+                        class="category-card bg-gradient-to-br from-yellow-50 to-yellow-100 p-8 rounded-xl hover:shadow-lg transition-shadow cursor-pointer"
+                        data-category="Other"
+                    >
+                        <div class="text-yellow-600 mb-4">
+                            <i
+                                data-feather="more-horizontal"
+                                class="w-12 h-12"
+                            ></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">
+                            Other
+                        </h3>
+                        <p class="text-gray-600">
+                            All other subjects and reference materials
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-16 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <div
+                            class="text-3xl font-bold text-blue-600 mb-2"
+                            id="totalBooks"
+                        >
+                            0
+                        </div>
+                        <p class="text-gray-600">Books Available</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <div
+                            class="text-3xl font-bold text-green-600 mb-2"
+                            id="totalCategories"
+                        >
+                            6
+                        </div>
+                        <p class="text-gray-600">Categories</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <div class="text-3xl font-bold text-purple-600 mb-2">
+                            100%
+                        </div>
+                        <p class="text-gray-600">Student-to-Student</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div
+                    class="flex flex-col md:flex-row justify-between items-center"
+                >
+                    <div class="mb-4 md:mb-0">
+                        <a href="index.html" class="text-2xl font-bold">
+                            <i
+                                data-feather="book"
+                                class="inline-block w-6 h-6 mr-2"
+                            ></i>
+                            EDUBRIDGE
+                        </a>
+                        <p class="text-gray-400 mt-2">
+                            Connecting students through textbooks
+                        </p>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a
+                            href="index.html"
+                            class="text-gray-400 hover:text-white transition-colors"
+                            >Home</a
+                        >
+                        <a
+                            href="books.html"
+                            class="text-gray-400 hover:text-white transition-colors"
+                            >Browse</a
+                        >
+                        <a
+                            href="post.html"
+                            class="text-gray-400 hover:text-white transition-colors"
+                            >Post</a
+                        >
+                        <a
+                            href="contact.html"
+                            class="text-gray-400 hover:text-white transition-colors"
+                            >Contact</a
+                        >
+                    </div>
+                </div>
+                <div
+                    class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400"
+                >
+                    <p>&copy; 2025 EDUBRIDGE. Made for students, by students.</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+        <script>
+            // Initialize Feather icons
+            feather.replace();
+
+            // Mobile menu toggle
+            document
+                .getElementById("mobileMenuBtn")
+                .addEventListener("click", function () {
+                    const mobileMenu = document.getElementById("mobileMenu");
+                    mobileMenu.classList.toggle("hidden");
+                });
+
+            // Category click handlers
+            document.querySelectorAll(".category-card").forEach((card) => {
+                card.addEventListener("click", function () {
+                    const category = this.dataset.category;
+                    localStorage.setItem("selectedCategory", category);
+                    window.location.href = "books.html";
+                });
+            });
+
+            // Add this function to avoid ReferenceError
+            function getBooks() {
+                // Try to get books from localStorage, or return an empty array
+                return JSON.parse(localStorage.getItem("books") || "[]");
+            }
+
+            // Update stats on page load
+            document.addEventListener("DOMContentLoaded", function () {
+                const books = getBooks();
+                document.getElementById("totalBooks").textContent =
+                    books.length;
+            });
+        </script>
+    </body>
+</html>

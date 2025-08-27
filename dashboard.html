@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - EDUBRIDGE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600">
+                        <i data-feather="book" class="inline-block w-6 h-6 mr-2"></i>
+                        EDUBRIDGE
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="books.html" class="text-gray-600 hover:text-blue-600 transition-colors">Browse Books</a>
+                    <a href="post.html" class="text-gray-600 hover:text-blue-600 transition-colors">Post a Book</a>
+                    <a href="delivery.html" class="text-gray-600 hover:text-blue-600 transition-colors">Delivery</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
+                    <div class="relative">
+                        <button id="userMenuBtn" class="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
+                            <i data-feather="user" class="w-5 h-5 mr-2"></i>
+                            <span id="userName">User</span>
+                            <i data-feather="chevron-down" class="w-4 h-4 ml-1"></i>
+                        </button>
+                        <div id="userDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50">
+                            <a href="dashboard.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dashboard</a>
+                            <a href="profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                            <a href="my-books.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Books</a>
+                            <a href="orders.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Orders</a>
+                            <div class="border-t border-gray-100"></div>
+                            <button onclick="logout()" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign Out</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuBtn" class="text-gray-600 hover:text-blue-600">
+                        <i data-feather="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Home</a>
+                <a href="books.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Browse Books</a>
+                <a href="post.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Post a Book</a>
+                <a href="delivery.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Delivery</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Contact</a>
+                <div class="border-t border-gray-200 pt-2">
+                    <a href="dashboard.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Dashboard</a>
+                    <a href="profile.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Profile</a>
+                    <a href="my-books.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">My Books</a>
+                    <a href="orders.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Orders</a>
+                    <button onclick="logout()" class="block w-full text-left px-3 py-2 text-gray-600 hover:text-blue-600">Sign Out</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Header -->
+    <section class="bg-white py-8 border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-800">Welcome back, <span id="dashboardUserName">User</span>!</h1>
+                    <p class="text-gray-600 mt-2">Manage your books and orders from your dashboard</p>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="post.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        <i data-feather="plus" class="w-4 h-4 inline mr-2"></i>
+                        Post New Book
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Stats -->
+    <section class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center">
+                        <div class="p-3 bg-blue-100 rounded-full">
+                            <i data-feather="book" class="w-6 h-6 text-blue-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-sm font-medium text-gray-600">Books Posted</p>
+                            <p class="text-2xl font-bold text-gray-900" id="booksPosted">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center">
+                        <div class="p-3 bg-green-100 rounded-full">
+                            <i data-feather="shopping-cart" class="w-6 h-6 text-green-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-sm font-medium text-gray-600">Books Sold</p>
+                            <p class="text-2xl font-bold text-gray-900" id="booksSold">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center">
+                        <div class="p-3 bg-yellow-100 rounded-full">
+                            <i data-feather="truck" class="w-6 h-6 text-yellow-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-sm font-medium text-gray-600">Active Orders</p>
+                            <p class="text-2xl font-bold text-gray-900" id="activeOrders">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center">
+                        <div class="p-3 bg-purple-100 rounded-full">
+                            <i data-feather="dollar-sign" class="w-6 h-6 text-purple-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-sm font-medium text-gray-600">Total Earnings</p>
+                            <p class="text-2xl font-bold text-gray-900">₹<span id="totalEarnings">0</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Activities -->
+    <section class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- My Recent Books -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">My Recent Books</h2>
+                        <a href="my-books.html" class="text-blue-600 hover:text-blue-500 text-sm">View All</a>
+                    </div>
+                    <div id="recentBooks" class="space-y-4">
+                        <!-- Recent books will be populated here -->
+                        <div class="text-center py-8 text-gray-500">
+                            <i data-feather="book-open" class="w-12 h-12 mx-auto mb-2 text-gray-400"></i>
+                            <p>No books posted yet</p>
+                            <a href="post.html" class="text-blue-600 hover:text-blue-500 text-sm">Post your first book</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Orders -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Recent Orders</h2>
+                        <a href="orders.html" class="text-blue-600 hover:text-blue-500 text-sm">View All</a>
+                    </div>
+                    <div id="recentOrders" class="space-y-4">
+                        <!-- Recent orders will be populated here -->
+                        <div class="text-center py-8 text-gray-500">
+                            <i data-feather="package" class="w-12 h-12 mx-auto mb-2 text-gray-400"></i>
+                            <p>No orders yet</p>
+                            <a href="books.html" class="text-blue-600 hover:text-blue-500 text-sm">Browse books</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="py-8 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Quick Actions</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <a href="post.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
+                    <i data-feather="plus-circle" class="w-8 h-8 text-blue-600 mx-auto mb-3"></i>
+                    <h3 class="font-semibold text-gray-800">Post a Book</h3>
+                    <p class="text-sm text-gray-600">List your textbook for sale</p>
+                </a>
+                <a href="books.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
+                    <i data-feather="search" class="w-8 h-8 text-green-600 mx-auto mb-3"></i>
+                    <h3 class="font-semibold text-gray-800">Browse Books</h3>
+                    <p class="text-sm text-gray-600">Find books you need</p>
+                </a>
+                <a href="delivery.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
+                    <i data-feather="truck" class="w-8 h-8 text-yellow-600 mx-auto mb-3"></i>
+                    <h3 class="font-semibold text-gray-800">Track Delivery</h3>
+                    <p class="text-sm text-gray-600">Check delivery status</p>
+                </a>
+                <a href="profile.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
+                    <i data-feather="user" class="w-8 h-8 text-purple-600 mx-auto mb-3"></i>
+                    <h3 class="font-semibold text-gray-800">Update Profile</h3>
+                    <p class="text-sm text-gray-600">Edit your information</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="index.html" class="text-2xl font-bold">
+                        <i data-feather="book" class="inline-block w-6 h-6 mr-2"></i>
+                        BookSwap
+                    </a>
+                    <p class="text-gray-400 mt-2">Connecting students through textbooks</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="books.html" class="text-gray-400 hover:text-white transition-colors">Browse</a>
+                    <a href="post.html" class="text-gray-400 hover:text-white transition-colors">Post</a>
+                    <a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 BookSwap. Made for students, by students.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+        
+        // Check if user is logged in
+        if (!localStorage.getItem('isLoggedIn')) {
+            window.location.href = 'login.html';
+        }
+
+        // Load user data
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUserData();
+            loadDashboardStats();
+            setupEventListeners();
+        });
+
+        function loadUserData() {
+            const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+            const userSession = JSON.parse(localStorage.getItem('userSession') || '{}');
+            
+            const userName = userData.fullName || userSession.email?.split('@')[0] || 'User';
+            document.getElementById('userName').textContent = userName;
+            document.getElementById('dashboardUserName').textContent = userName;
+        }
+
+        function loadDashboardStats() {
+            const books = getBooks();
+            const userBooks = getUserBooks();
+            const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+            
+            document.getElementById('booksPosted').textContent = userBooks.length;
+            document.getElementById('booksSold').textContent = userBooks.filter(book => book.sold).length;
+            document.getElementById('activeOrders').textContent = orders.filter(order => order.status !== 'delivered').length;
+            
+            const totalEarnings = userBooks.filter(book => book.sold).reduce((sum, book) => sum + (book.price || 0), 0);
+            document.getElementById('totalEarnings').textContent = totalEarnings;
+            
+            renderRecentBooks(userBooks.slice(0, 3));
+            renderRecentOrders(orders.slice(0, 3));
+        }
+
+        function getUserBooks() {
+            const books = getBooks();
+            const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+            const userSession = JSON.parse(localStorage.getItem('userSession') || '{}');
+            const userEmail = userData.email || userSession.email;
+            
+            return books.filter(book => book.email === userEmail);
+        }
+
+        function renderRecentBooks(books) {
+            const container = document.getElementById('recentBooks');
+            
+            if (books.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8 text-gray-500">
+                        <i data-feather="book-open" class="w-12 h-12 mx-auto mb-2 text-gray-400"></i>
+                        <p>No books posted yet</p>
+                        <a href="post.html" class="text-blue-600 hover:text-blue-500 text-sm">Post your first book</a>
+                    </div>
+                `;
+                feather.replace();
+                return;
+            }
+            
+            container.innerHTML = books.map(book => `
+                <div class="flex items-center p-4 border border-gray-200 rounded-lg">
+                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center mr-4">
+                        ${book.image ? 
+                            `<img src="${book.image}" alt="${book.title}" class="w-full h-full object-cover rounded-lg">` :
+                            `<i data-feather="book" class="w-8 h-8 text-gray-400"></i>`
+                        }
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-gray-800">${book.title}</h3>
+                        <p class="text-sm text-gray-600">${book.department} • Semester ${book.semester}</p>
+                        <p class="text-lg font-bold text-green-600">₹${book.price}</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="px-2 py-1 text-xs rounded-full ${book.sold ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}">
+                            ${book.sold ? 'Sold' : 'Available'}
+                        </span>
+                    </div>
+                </div>
+            `).join('');
+            
+            feather.replace();
+        }
+
+        function renderRecentOrders(orders) {
+            const container = document.getElementById('recentOrders');
+            
+            if (orders.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8 text-gray-500">
+                        <i data-feather="package" class="w-12 h-12 mx-auto mb-2 text-gray-400"></i>
+                        <p>No orders yet</p>
+                        <a href="books.html" class="text-blue-600 hover:text-blue-500 text-sm">Browse books</a>
+                    </div>
+                `;
+                feather.replace();
+                return;
+            }
+            
+            container.innerHTML = orders.map(order => `
+                <div class="flex items-center p-4 border border-gray-200 rounded-lg">
+                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center mr-4">
+                        <i data-feather="package" class="w-8 h-8 text-gray-400"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-gray-800">${order.bookTitle}</h3>
+                        <p class="text-sm text-gray-600">Order #${order.orderId}</p>
+                        <p class="text-lg font-bold text-green-600">₹${order.totalAmount}</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="px-2 py-1 text-xs rounded-full ${getStatusColor(order.status)}">
+                            ${order.status}
+                        </span>
+                    </div>
+                </div>
+            `).join('');
+            
+            feather.replace();
+        }
+
+        function getStatusColor(status) {
+            switch(status) {
+                case 'pending': return 'bg-yellow-100 text-yellow-800';
+                case 'confirmed': return 'bg-blue-100 text-blue-800';
+                case 'shipped': return 'bg-purple-100 text-purple-800';
+                case 'delivered': return 'bg-green-100 text-green-800';
+                default: return 'bg-gray-100 text-gray-800';
+            }
+        }
+
+        function setupEventListeners() {
+            // Mobile menu toggle
+            document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobileMenu');
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // User dropdown toggle
+            document.getElementById('userMenuBtn').addEventListener('click', function() {
+                const dropdown = document.getElementById('userDropdown');
+                dropdown.classList.toggle('hidden');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                const userMenuBtn = document.getElementById('userMenuBtn');
+                const userDropdown = document.getElementById('userDropdown');
+                
+                if (!userMenuBtn.contains(e.target) && !userDropdown.contains(e.target)) {
+                    userDropdown.classList.add('hidden');
+                }
+            });
+        }
+
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('userData');
+            localStorage.removeItem('userSession');
+            showToast('Logged out successfully', 'success');
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

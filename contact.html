@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - EDUBRIDGE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600">
+                        <i data-feather="book" class="inline-block w-6 h-6 mr-2"></i>
+                        EDUBRIDGE
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="books.html" class="text-gray-600 hover:text-blue-600 transition-colors">Browse Books</a>
+                    <a href="post.html" class="text-gray-600 hover:text-blue-600 transition-colors">Post a Book</a>
+                    <a href="contact.html" class="text-blue-600 font-semibold">Contact</a>
+                    <a href="delivery.html" class="text-gray-600 hover:text-blue-600 transition-colors">Delivery</a>
+                    <a href="payment.html" class="text-gray-600 hover:text-blue-600 transition-colors">Payment</a>
+                    <a href="login.html" class="text-gray-600 hover:text-blue-600 transition-colors">Login</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuBtn" class="text-gray-600 hover:text-blue-600">
+                        <i data-feather="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Home</a>
+                <a href="books.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Browse Books</a>
+                <a href="post.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Post a Book</a>
+                <a href="contact.html" class="block px-3 py-2 text-blue-600 font-semibold">Contact</a>
+                <a href="delivery.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Delivery</a>
+                <a href="payment.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Payment</a>
+                <a href="login.html" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="bg-white py-8 border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">Contact Us</h1>
+            <p class="text-gray-600">Get in touch with the BookSwap team</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Contact Information -->
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Get In Touch</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-blue-600 mr-4 mt-1">
+                                <i data-feather="mail" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Email</h3>
+                                <p class="text-gray-600">support@bookswap.com</p>
+                                <p class="text-gray-600">feedback@bookswap.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-blue-600 mr-4 mt-1">
+                                <i data-feather="phone" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Phone</h3>
+                                <p class="text-gray-600">+91 98765 43210</p>
+                                <p class="text-gray-600">Mon-Fri: 9AM - 6PM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-blue-600 mr-4 mt-1">
+                                <i data-feather="clock" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Support Hours</h3>
+                                <p class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                <p class="text-gray-600">Saturday: 10:00 AM - 4:00 PM</p>
+                                <p class="text-gray-600">Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Section -->
+                    <div class="mt-8">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Frequently Asked Questions</h3>
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-blue-600 pl-4">
+                                <h4 class="font-medium text-gray-800">How do I post a book?</h4>
+                                <p class="text-gray-600 text-sm">Go to the "Post a Book" page and fill out the form with your book details.</p>
+                            </div>
+                            <div class="border-l-4 border-blue-600 pl-4">
+                                <h4 class="font-medium text-gray-800">Is BookSwap free to use?</h4>
+                                <p class="text-gray-600 text-sm">Yes, BookSwap is completely free for all students.</p>
+                            </div>
+                            <div class="border-l-4 border-blue-600 pl-4">
+                                <h4 class="font-medium text-gray-800">How do I contact a seller?</h4>
+                                <p class="text-gray-600 text-sm">Click the "Contact Seller" button on any book listing to view their contact information.</p>
+                            </div>
+                            <div class="border-l-4 border-blue-600 pl-4">
+                                <h4 class="font-medium text-gray-800">Can I edit my book listing?</h4>
+                                <p class="text-gray-600 text-sm">Currently, you need to contact us to modify your listing. We're working on an edit feature.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h2>
+                    <form id="contactForm">
+                        <div class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Name <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" id="name" name="name" required
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                       placeholder="Your full name">
+                                <div class="error-message text-red-500 text-sm mt-1 hidden" id="nameError"></div>
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Email <span class="text-red-500">*</span>
+                                </label>
+                                <input type="email" id="email" name="email" required
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                       placeholder="your.email@example.com">
+                                <div class="error-message text-red-500 text-sm mt-1 hidden" id="emailError"></div>
+                            </div>
+
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Subject <span class="text-red-500">*</span>
+                                </label>
+                                <select id="subject" name="subject" required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    <option value="">Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="technical">Technical Support</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="bug">Bug Report</option>
+                                    <option value="feature">Feature Request</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <div class="error-message text-red-500 text-sm mt-1 hidden" id="subjectError"></div>
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Message <span class="text-red-500">*</span>
+                                </label>
+                                <textarea id="message" name="message" required rows="5"
+                                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                                          placeholder="Tell us how we can help you..."></textarea>
+                                <div class="error-message text-red-500 text-sm mt-1 hidden" id="messageError"></div>
+                            </div>
+
+                            <button type="submit" id="submitBtn"
+                                    class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+                                <span id="submitText">Send Message</span>
+                                <div id="submitLoader" class="hidden">
+                                    <i data-feather="loader" class="w-5 h-5 animate-spin inline-block"></i>
+                                    Sending...
+                                </div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 hidden">
+        <div class="bg-white rounded-lg p-6 max-w-md w-full text-center">
+            <div class="text-green-600 mb-4">
+                <i data-feather="check-circle" class="w-16 h-16 mx-auto"></i>
+            </div>
+            <h3 class="text-lg font-semibold mb-2">Message Sent Successfully!</h3>
+            <p class="text-gray-600 mb-6">Thank you for contacting us. We'll get back to you within 24 hours.</p>
+            <button onclick="closeSuccessModal()" class="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="index.html" class="text-2xl font-bold">
+                        <i data-feather="book" class="inline-block w-6 h-6 mr-2"></i>
+                        BookSwap
+                    </a>
+                    <p class="text-gray-400 mt-2">Connecting students through textbooks</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="books.html" class="text-gray-400 hover:text-white transition-colors">Browse</a>
+                    <a href="post.html" class="text-gray-400 hover:text-white transition-colors">Post</a>
+                    <a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 BookSwap. Made for students, by students.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+        
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validateContactForm()) {
+                submitContactForm();
+            }
+        });
+
+        function validateContactForm() {
+            let isValid = true;
+            const requiredFields = ['name', 'email', 'subject', 'message'];
+            
+            // Clear previous errors
+            document.querySelectorAll('.error-message').forEach(el => el.classList.add('hidden'));
+            
+            requiredFields.forEach(field => {
+                const input = document.getElementById(field);
+                if (!input.value.trim()) {
+                    showError(field + 'Error', 'This field is required');
+                    isValid = false;
+                }
+            });
+            
+            // Validate email
+            const email = document.getElementById('email').value;
+            if (email && !isValidEmail(email)) {
+                showError('emailError', 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+
+        function submitContactForm() {
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const submitLoader = document.getElementById('submitLoader');
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitText.classList.add('hidden');
+            submitLoader.classList.remove('hidden');
+            
+            // Simulate form submission
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitText.classList.remove('hidden');
+                submitLoader.classList.add('hidden');
+                
+                // Show success modal
+                document.getElementById('successModal').classList.remove('hidden');
+                
+                // Reset form
+                document.getElementById('contactForm').reset();
+                
+                // In a real application, you would send the form data to a server
+                console.log('Contact form submitted:', {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    subject: document.getElementById('subject').value,
+                    message: document.getElementById('message').value,
+                    timestamp: new Date().toISOString()
+                });
+            }, 1500);
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.add('hidden');
+        }
+
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+            errorElement.classList.remove('hidden');
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</body>
+</html>
